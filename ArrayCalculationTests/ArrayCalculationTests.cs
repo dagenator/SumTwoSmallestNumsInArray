@@ -14,7 +14,7 @@ namespace ArrayCalculationTests
         [Test]
         public void ExceptionTest()
         {
-            ArrayCalculation calc = new ArrayCalculation();
+            ArrayCalculation calc = new ArrayCalculation(2);
 
             Assert.Throws<Exception>(() => calc.GetSumTwoMinimumInArray( new double[] { } ));
         }
@@ -25,7 +25,7 @@ namespace ArrayCalculationTests
         [TestCase(double.NaN, new double[] {double.PositiveInfinity, double.NegativeInfinity })]
         public void TestCases( double expectedResult, double[] inputArray)
         {
-            ArrayCalculation calc = new ArrayCalculation();
+            ArrayCalculation calc = new ArrayCalculation(2);
             Assert.AreEqual(expectedResult, calc.GetSumTwoMinimumInArray(inputArray));
         }
 

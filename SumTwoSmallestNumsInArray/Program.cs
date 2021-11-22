@@ -7,7 +7,7 @@ namespace SumTwoSmallestNumsInArray
     {
         static void Main(string[] args)
         {
-            ArrayCalculation calc = new ArrayCalculation();
+            ArrayCalculation calc = new ArrayCalculation(2);
             double res = calc.GetSumTwoMinimumInArray(new double[] { -1, 1, 4, 10, -3 });
             Console.WriteLine(res);
         }

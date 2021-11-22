@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SumTwoSmallestNumsInArray
@@ -7,8 +8,13 @@ namespace SumTwoSmallestNumsInArray
     public class ArrayCalculation
     {
         //Очередь с двумя последними минимальными эллементами
-        private double[] ArrayWithMinimums = new double[]{double.PositiveInfinity,double.PositiveInfinity};
-        
+        private double[] ArrayWithMinimums;
+        private readonly int ArrayLength;
+        public ArrayCalculation(int num)
+        {
+            ArrayLength = num;
+            ArrayWithMinimums = Enumerable.Repeat(double.PositiveInfinity, ArrayLength).ToArray();
+        }
         
         private double GetSum()
         {
@@ -23,8 +29,8 @@ namespace SumTwoSmallestNumsInArray
 
         private void TryToSetNum(double num)
         {
-            if (ArrayWithMinimums[ArrayWithMinimums.Length-1] > num)
-                ArrayWithMinimums[ArrayWithMinimums.Length-1] = num;
+            if (ArrayWithMinimums[^1] > num)
+                ArrayWithMinimums[^1] = num;
             Array.Sort(ArrayWithMinimums);
         }
 
